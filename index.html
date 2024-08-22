@@ -24,14 +24,17 @@
   <body>
     <div class="music">
       <div class="music-thumb">
-        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cf/4b/7f/cf4b7f75-a802-89f1-01fb-aa1a68710a0c/AppIcon-0-1x_U007epad-0-0-85-220-0.png/230x0w.webp" alt="" />
+        <img
+          src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cf/4b/7f/cf4b7f75-a802-89f1-01fb-aa1a68710a0c/AppIcon-0-1x_U007epad-0-0-85-220-0.png/230x0w.webp"
+          alt=""
+        />
       </div>
       <h3 class="music-name">Về đâu mái tóc người thương</h3>
       <input type="range" name="range" id="range" class="range" />
       <audio src="./music/holo.mp3" id="song"></audio>
       <div class="timer">
         <div class="remaining">-3:10</div>
-        <div class="duration">2:10</div>     
+        <div class="duration">2:10</div>
       </div>
       <div class="controls">
         <div class="play">
@@ -39,10 +42,10 @@
             <ion-icon name="play" class="play-icon"></ion-icon>
           </div>
         </div>
-      </div>   
-      <canvas id="lyric-canvas" width="600px" height="900px"></canvas>  
+      </div>
+      <canvas id="lyric-canvas" width="600px" height="900px"></canvas>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="./app.js"></script>
+    <script type="module" src="./xml2json.js"></script>
+    <script type="module" src="./app.js"></script>
   </body>
 </html>
