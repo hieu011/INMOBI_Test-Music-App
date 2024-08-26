@@ -17,9 +17,7 @@ let currentTimeInMs = 0;
 
 song.addEventListener("ended", handleEndedSong);
 function handleEndedSong() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
   init();
-  drawInit();
   song.play();
   displayTimer();
 }
