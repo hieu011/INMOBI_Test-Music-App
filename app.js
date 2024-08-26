@@ -154,12 +154,15 @@ function drawInit() {
 function highlightWord() {
   for (let j = 0; j < lyricsJSON.param.length; j++) {
     for (let k = 0; k < lyricsJSON.param[j].i.length; k++) {
+      timeDiff = 0;
       let currentWord = lyricsJSON.param[j].i[k];
       let currentWordStartTime = parseFloat(currentWord._va);
       if (currentTimeInMs >= currentWordStartTime) {
-        timeDiff = 100;
+        if(lyricsJSON.param[j].i[k+1]){
+          timeDiff = (parseFloat(lyricsJSON.param[j].i[k+1]._va) - parseFloat(lyricsJSON.param[j].i[k]._va))*1000;
+        }
         if (lyricsJSON.param[j + 1] && k == lyricsJSON.param[j].i.length - 1) {
-          timeDiff = 200;
+          timeDiff = (parseFloat(lyricsJSON.param[j].i[k]._va) - parseFloat(lyricsJSON.param[j].i[k-1]._va))*1000;
         }
         let xPos = currentWord.x;
         let yPos = currentWord.y;
@@ -168,7 +171,7 @@ function highlightWord() {
           setTimeout(() => {
             ctx.fillText(ch, xPos, yPos);
             xPos += ctx.measureText(ch).width; // Cập nhật vị trí x cho chữ cái tiếp theo
-          }, timeDiff * (index + 1));
+          }, timeDiff / (characters.length) * (index + 1));
         });
       }
     }
